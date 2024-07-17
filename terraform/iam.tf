@@ -11,9 +11,9 @@ module "iam_codedeploy"{
   create_custom_role_trust_policy = true
   custom_role_trust_policy= data.aws_iam_policy_document.custom_trust_policy.json
   custom_role_policy_arns = [
-    "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
+    "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole","arn:aws:iam::aws:policy/AmazonS3FullAccess"
   ]
-  number_of_custom_role_policy_arns = 1
+  number_of_custom_role_policy_arns = 2
 }  
 
 module "iam_codebuild"{
