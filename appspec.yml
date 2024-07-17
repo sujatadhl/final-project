@@ -10,9 +10,6 @@ hooks:
     - location: server_stop.sh
       timeout: 20
       runas: root
-  BeforeInstall:
-      timeout: 300
-      runas: root
   ApplicationStart:
     - location: server_start.sh
       timeout: 20
