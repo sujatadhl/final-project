@@ -1,2 +1,6 @@
 #!/bin/bash
-sudo pkill -f 'java -jar'
+#!/bin/bash
+
+set -e
+
+service tomcat stop
