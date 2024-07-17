@@ -1,0 +1,35 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+    commands:
+      - echo Installing dependencies...
+      - apt-get update      
+
+  pre_build:
+    commands:
+      # - echo connection to database 
+      # - echo spring.datasource.username="user"
+      # - echo spring.datasource.password="0eg)Q5<-sT]bPR}O5dZ!Km|!*cY+"
+      # - echo spring.datasource.url="jdbc:mysql://java-dbs.cmuokqciitb8.us-east-1.rds.amazonaws.com:3306/book?ServerTimezone=UTC"
+
+      - echo spring.datasource.username=$(aws secretsmanager get-secret-value --secret-id $SECRETS_ID --query SecretString  | jq -r '. | fromjson | .username') >> src/main/resources/application.properties
+      - echo spring.datasource.password=$(aws secretsmanager get-secret-value --secret-id $SECRETS_ID --query SecretString  | jq -r '. | fromjson | .password')  >> src/main/resources/application.properties
+      - echo spring.datasource.url=jdbc:mysql://$RDS_HOSTNAME:$RDS_PORT/$RDS_DB_NAME?ServerTimezone=UTC >> src/main/resources/application.properties
+
+      
+  build:
+    commands:
+      - echo Compiling the application...
+      - mvn clean package
+      - echo Running tests...
+      - mvn test
+  post_build:
+    commands:
+      - echo Packaging artifacts...
+
+artifacts:
+  files:
+    - '**/*'
