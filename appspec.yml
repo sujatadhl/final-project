@@ -5,21 +5,14 @@ files:
   - source: /
     destination: /home/ubuntu/app
 
-# permissions:
-#   - object: /
-#     pattern: "**"
-#     owner: ec2-user
-#     group: ec2-user
-
 hooks:
    ApplicationStop:
     - location: server_stop.sh
       timeout: 20
       runas: root
-  # BeforeInstall:
-  #   - location: server_clear.sh
-  #     timeout: 300
-  #     runas: root
+  BeforeInstall:
+      timeout: 300
+      runas: root
   ApplicationStart:
     - location: server_start.sh
       timeout: 20
