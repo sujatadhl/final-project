@@ -2,8 +2,8 @@ version: 0.0
 os: ubuntu
 
 files:
-  - source:  /target/*
-    destination: /tmp/codedeploy-deployment-staging-area/
+  - source: /
+    destination: /home/ubuntu/app
 
 # permissions:
 #   - object: /
