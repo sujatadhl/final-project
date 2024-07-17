@@ -7,7 +7,7 @@ phases:
     commands:
       - echo Installing dependencies...
       - apt-get update    
-      - sudo apt install mysql-client  
+      - sudo apt install -y mysql-client  
 
   pre_build:
     commands:
