@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 cd /home/ubuntu/app
 sudo java -jar -Dserver.port=8080 \
     *.jar > /dev/null 2> /dev/null < /dev/null &
