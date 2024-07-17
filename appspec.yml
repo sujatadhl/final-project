@@ -10,8 +10,8 @@ hooks:
     - location: server_stop.sh
       timeout: 20
       runas: root
-  BeforeInstall:
-    - location: server_clear.sh
+   AfterInstall:
+    - location: privileges.sh
       timeout: 20
       runas: root
   ApplicationStart:
