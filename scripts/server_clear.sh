@@ -1,2 +1,2 @@
-#!/bin/bash
-sudo rm -rf /home/ubuntu/app
+# #!/bin/bash
+# sudo rm -rf /home/ubuntu/app
