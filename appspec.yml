@@ -6,9 +6,13 @@ files:
     destination: /home/ubuntu/app
 
 hooks:
-   ApplicationStop:
+  ApplicationStop:
     - location: server_stop.sh
       timeout: 20
+      runas: root
+  BeforeInstall:
+    - location: server_clear.sh
+      timeout:20
       runas: root
   ApplicationStart:
     - location: server_start.sh
