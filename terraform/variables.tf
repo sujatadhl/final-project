@@ -3,6 +3,9 @@ variable "region" {
   type        = string
   default     = "us-east-1"
 }
+variable "s3_policy" {
+  type = string
+}
 
 variable "project" {
   description = "Name to be used on all the resources as identifier"

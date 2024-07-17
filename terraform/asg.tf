@@ -21,6 +21,7 @@ module "asg" {
     SSM = var.ssm_policy
     CodeDeploy= var.codedeploy
     cloudwatch=var.cloudwatch_logs
+    s3=var.s3_policy
 
   }
   security_groups       = [module.security-group.security_group_id]

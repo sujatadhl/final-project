@@ -11,7 +11,6 @@ resource "aws_codedeploy_deployment_group" "codedeploy_dg" {
   depends_on = [ module.vpc, module.iam_codebuild, aws_codestarconnections_connection.github-connection]
 
   deployment_style {
-    deployment_option = "WITH_TRAFFIC_CONTROL"
     deployment_type   = "IN_PLACE"
   }
   load_balancer_info {
