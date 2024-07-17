@@ -27,7 +27,7 @@ engine_version    = "8.0"
 instance_class    = "db.t3.micro"
 allocated_storage = 5
 db_name           = "book"
-username          = "user"
+username          = "root"
 port              = "3306"
 monitoring_interval = "30"
 monitoring_role_name = "rds-monitoring-role-java"
@@ -39,7 +39,7 @@ major_engine_version = "8.0"
 manage_master_user_password= true
 bucket_name = "java-artifact"
 repo_branch = "java-app"
-repo_name = "final-proj"
+repo_name = "final-project"
 repo_owner = "sujatadhl"
 email = "sujata.dahal@adex.ltd"
 
