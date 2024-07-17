@@ -3,13 +3,13 @@ os: ubuntu
 
 files:
   - source: /
-    destination: /home/ec2-user/app
+    destination: /home/ubuntu/app
 
-permissions:
-  - object: /
-    pattern: "**"
-    owner: ec2-user
-    group: ec2-user
+# permissions:
+#   - object: /
+#     pattern: "**"
+#     owner: ec2-user
+#     group: ec2-user
 
 hooks:
    ApplicationStop:
@@ -18,10 +18,6 @@ hooks:
       runas: root
   BeforeInstall:
     - location: server_clear.sh
-      timeout: 300
-      runas: root
-  AfterInstall:
-    - location: fix_privileges.sh
       timeout: 300
       runas: root
   ApplicationStart:

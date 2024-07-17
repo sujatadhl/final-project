@@ -26,10 +26,10 @@ phases:
     commands:
       - echo Compiling the application...
       - mvn clean package
-      - echo Running tests...
-      - mvn test
+     
   post_build:
     commands:
+      - mvn test
       - echo Packaging artifacts...
 
 artifacts:
